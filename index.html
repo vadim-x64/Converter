@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Website</title>
+    <link rel="stylesheet" href="src/css/index.css">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/128/2150/2150150.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1 class="title">Валютний інформер НБУ</h1>
+        <div class="date-display">
+            <i class="fas fa-calendar-alt"></i> Курс станом на <span id="current-date">завантаження...</span>
+        </div>
+    </header>
+    <div class="panels">
+        <div class="panel left-panel">
+            <h2 class="panel-header"><i class="fas fa-money-bill-wave"></i> Курси валют</h2>
+            <div id="currency-list-container">
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <div class="loading-text">Завантаження курсів валют...</div>
+                </div>
+                <ul class="currency-list" id="currency-list" style="display:none;"></ul>
+            </div>
+        </div>
+        <div class="panel right-panel">
+            <h2 class="panel-header"><i class="fas fa-exchange-alt"></i> Конвертер валют</h2>
+            <div class="converter-block">
+                <div class="converter-title">
+                    <i class="fas fa-globe"></i> З іноземної валюти в гривні
+                </div>
+                <div class="converter-row">
+                    <label for="amount-foreign">Сума:</label>
+                    <input type="number" id="amount-foreign" min="0" step="0.01" placeholder="Введіть суму">
+                </div>
+                <div class="converter-row">
+                    <label for="currency-input">Валюта:</label>
+                    <input list="currency-select" id="currency-input" placeholder="Виберіть валюту">
+                    <datalist id="currency-select"></datalist>
+                </div>
+                <div class="animation-container">
+                    <i class="fas fa-arrow-down conversion-arrow" id="arrow-down-1"></i>
+                </div>
+                <div class="result-box">
+                    <div class="converter-row">
+                        <label for="amount-uah">Результат:</label>
+                        <input type="number" id="amount-uah" readonly placeholder="Результат у гривнях">
+                    </div>
+                </div>
+                <div id="foreign-error" class="error"></div>
+            </div>
+            <div class="divider"></div>
+            <div class="converter-block">
+                <div class="converter-title">
+                    <i class="fas fa-hryvnia"></i> З гривень в іноземну валюту
+                </div>
+                <div class="converter-row">
+                    <label for="amount-uah-input">Сума (UAH):</label>
+                    <input type="number" id="amount-uah-input" min="0" step="0.01" placeholder="Введіть суму в гривнях">
+                </div>
+                <div class="converter-row">
+                    <label for="currency-output">Валюта:</label>
+                    <input list="currency-output-select" id="currency-output" placeholder="Виберіть валюту">
+                    <datalist id="currency-output-select"></datalist>
+                </div>
+                <div class="animation-container">
+                    <i class="fas fa-arrow-down conversion-arrow" id="arrow-down-2"></i>
+                </div>
+                <div class="result-box">
+                    <div class="converter-row">
+                        <label for="amount-foreign-result">Результат:</label>
+                        <input type="number" id="amount-foreign-result" readonly placeholder="Результат в іноземній валюті">
+                    </div>
+                </div>
+                <div id="uah-error" class="error"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <p>© 2025 Валютний інформер НБУ | Дані надаються Національним Банком України</p>
+</footer>
+<script src="src/js/index.js"></script>
+</body>
+</html>
