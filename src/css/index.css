@@ -140,17 +140,20 @@ header {
 .currency-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 8px;
     border-left: 4px solid var(--primary-color);
     background-color: #f9f9f9;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    cursor: pointer;
 }
 
 .currency-item:hover {
     transform: translateX(5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    background-color: #e9ecef;
 }
 
 .currency-info {
@@ -277,6 +280,7 @@ header {
     font-size: 0.9rem;
     padding: 5px 0;
     font-weight: 500;
+    min-height: 1.2em;
 }
 
 input[readonly] {
@@ -328,6 +332,116 @@ footer {
     color: #7f8c8d;
 }
 
+#currency-history-block {
+    margin-top: 20px;
+}
+
+#currency-history-block .panel-header i {
+    background-color: var(--accent-color);
+}
+
+#date-range-selector {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+#date-range-selector label {
+    margin-right: 5px;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+#date-range-selector input[type="date"] {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+#date-range-selector button {
+    padding: 9px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+}
+#date-range-selector button:hover {
+    background-color: var(--accent-color);
+}
+
+#currency-history-list-container {
+    padding: 10px;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+#currency-history-list {
+    list-style: none;
+    padding: 0;
+    max-height: 350px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+#currency-history-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+#currency-history-list::-webkit-scrollbar-track {
+    background: #e9ecef;
+    border-radius: 2px;
+}
+
+#currency-history-list::-webkit-scrollbar-thumb {
+    background: #bdc3c7;
+    border-radius: 2px;
+}
+
+#currency-history-list::-webkit-scrollbar-thumb:hover {
+    background: #95a5a6;
+}
+
+#currency-history-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    background-color: #f0f4f8;
+    border-left: 4px solid var(--accent-color);
+    font-size: 0.95rem;
+}
+
+#currency-history-list li:last-child {
+    margin-bottom: 0;
+}
+
+#currency-history-list .history-date {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+#currency-history-list .history-rate {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.loading-history {
+    text-align: center;
+    padding: 20px;
+}
+
 @media (max-width: 768px) {
     .panels {
         flex-direction: column;
@@ -357,5 +471,20 @@ footer {
 
     .panel-header {
         font-size: 1.3rem;
+    }
+
+    #date-range-selector {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #date-range-selector input[type="date"],
+    #date-range-selector button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #date-range-selector label {
+        margin-bottom: 5px;
     }
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Website</title>
+    <title>Валютний інформер НБУ</title>
     <link rel="stylesheet" href="src/css/index.css">
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/128/2150/2150150.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -77,6 +77,27 @@
                     </div>
                 </div>
                 <div id="uah-error" class="error"></div>
+            </div>
+
+            <div class="divider"></div>
+            <div id="currency-history-block">
+                <h3 class="panel-header" id="history-currency-header"><i class="fas fa-history"></i> Історія курсу для: <span id="selected-history-currency">...</span></h3>
+                <div id="date-range-selector" style="margin-bottom: 15px; display: flex; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <label for="start-date">З:</label>
+                    <input type="date" id="start-date">
+                    <label for="end-date">По:</label>
+                    <input type="date" id="end-date">
+                    <button id="fetch-history-range-btn">Отримати історію</button>
+                </div>
+                <div id="currency-history-list-container">
+                    <div class="loading-history" style="display:none;">
+                        <div class="loading-spinner"></div>
+                        <div class="loading-text">Завантаження історії...</div>
+                    </div>
+                    <ul id="currency-history-list">
+                    </ul>
+                    <div id="history-error" class="error"></div>
+                </div>
             </div>
         </div>
     </div>
